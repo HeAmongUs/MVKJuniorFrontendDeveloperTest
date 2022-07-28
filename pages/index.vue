@@ -3,10 +3,15 @@
     <transition name="slide-fade">
       <div v-if="isMessage" class="message">{{ textMessage }}</div>
     </transition>
-    <the-header />
+    <the-header :option-list="OPTION_LIST" @update:modelValue="updateSelectedSort" />
     <div class="d-flex gap-16 main">
       <the-sidebar @add-new-product="addNewProduct"/>
-      <product-list :product-list="productList" @remove-item="removeItem"/>
+      <template v-if="sortedProductList.length">
+        <transition name="slide-fade">
+          <product-list :product-list="sortedProductList" @remove-item="removeItem"/>
+        </transition>
+      </template>
+      <h2 v-else>Список пуст</h2>
     </div>
   </div>
 </template>
@@ -15,6 +20,7 @@
 import TheSidebar from "../components/TheSidebar";
 import TheHeader from "../components/TheHeader";
 import ProductList from "../components/ProductList";
+
 export default {
   name: "Index",
   components: {ProductList, TheHeader, TheSidebar},
@@ -22,6 +28,13 @@ export default {
     return {
       isMessage: false,
       textMessage: null,
+      selectedSort: "По умолчанию",
+      OPTION_LIST: [
+        "По умолчанию",
+        "По наименованию",
+        "По возрастнаию цены",
+        "По убыванию цены",
+      ],
       productList: [
         // {id: 1, title: "Название товара", cost: 10000, imgLink: "https://i.ibb.co/TTSPftz/Rectangle-31.png", description: "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк"},
         // {id: 2, title: "Название товара2", cost: 11000, imgLink: "https://i.ibb.co/TTSPftz/Rectangle-31.png", description: "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк"},
@@ -31,10 +44,29 @@ export default {
       ]
     }
   },
+  computed: {
+    sortedProductList() {
+      if (this.selectedSort === this.OPTION_LIST[0]) {
+        return [...this.productList].sort((prev, next) => prev.id - next.id)
+      } else if (this.selectedSort === this.OPTION_LIST[1]) {
+        return [...this.productList].sort((prev, next) => {
+          if ( prev.title < next.title ) return -1;
+          else return 1;
+        });
+      } else if (this.selectedSort === this.OPTION_LIST[2]) {
+        return [...this.productList].sort((prev, next) => prev.cost - next.cost)
+      } else if (this.selectedSort === this.OPTION_LIST[3]) {
+        return [...this.productList].sort((prev, next) => next.cost - prev.cost)
+      } return []
+    }
+  },
   created() {
     this.productList = JSON.parse(localStorage.getItem('productList'))
   },
   methods: {
+    updateSelectedSort(newValue) {
+      this.selectedSort = newValue
+    },
     addNewProduct(productToAdd) {
       const newProductId = Math.max(...this.productList.map((i) => i.id)) + 1
       productToAdd = {id: newProductId, ...productToAdd}

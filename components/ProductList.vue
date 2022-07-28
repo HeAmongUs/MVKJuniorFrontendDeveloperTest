@@ -10,7 +10,7 @@
           {{ product.description }}
         </div>
         <div class="product-list__item__info-cost">
-          {{ product.cost }}
+          {{ product.cost.toLocaleString() }}
         </div>
       </div>
       <div class="product-list__item__delete" @click="removeItem(product.id)">
@@ -44,6 +44,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  .product-list-move,
   .product-list-enter-active,
   .product-list-leave-active {
     transition: all 0.5s ease;

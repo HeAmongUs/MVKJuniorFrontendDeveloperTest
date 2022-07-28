@@ -5,11 +5,8 @@
     </h1>
     <div class="header__sort">
       <div class="select__container d-flex align-center">
-        <select class="select">
-          <option class="option" label="По умолчанию" value="1"></option>
-          <option class="option" label="По наименованию" value="2"></option>
-          <option class="option" label="По убыванию цены" value="3"></option>
-          <option class="option" label="По возрастанию цены" value="4"></option>
+        <select class="select" :value="modelValue" @change="updateModelValue($event.target.value)">
+          <option v-for="(option, index) in optionList" :key="index" class="option" :label="option" :value="option"></option>
         </select>
       </div>
     </div>
@@ -18,7 +15,23 @@
 
 <script>
 export default {
-  name: "TheHeader"
+  name: "TheHeader",
+  props: {
+    modelValue: {
+      type: String,
+      default: "По умолчанию"
+    },
+    optionList: {
+      type: Array,
+      required: true,
+    },
+  },
+  emits: ['update:modelValue'],
+  methods: {
+    updateModelValue(newValue) {
+      this.$emit('update:modelValue', newValue)
+    }
+  }
 }
 </script>
 
