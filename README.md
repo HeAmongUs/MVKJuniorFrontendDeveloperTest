@@ -16,53 +16,104 @@ $ npm run start
 # generate static project
 $ npm run generate
 ```
+# **Основное задание**
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+Необходимо реализовать страницу вывода списка товаров, и возможностью добавления/удаления товаров в списке.
 
-## Special Directories
+[**Ссылка на макет**](https://www.figma.com/file/kIuVw6nSk218pi9iE98iq5/Junior-frontend-developer-test?node-id=4%3A365)
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+## **Требование к стеку и исполнению**
 
-### `assets`
+- [X] Верстка должна совпадать с макетами.
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+- [X] Проект должен быть выполнен с использованием **Vue** фреймворка
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+- [X] Для реализации допустимо использование сборщика, **Vue CLI** или **Nuxt.js**, последний в    приоритете.
 
-### `components`
+- [X] Каждый компонент должен являться **SFC**.
 
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
+- [X] При выполнении работы не разрешается использовать никакие **UI библиотеки**.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
+- [X] В секции template не разрешается использовать **HTML препроцессоры**.
 
-### `layouts`
+- [X] В секции script допускается использование только **JavaScript**.
 
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
+- [X] Секция **style** должна быть написана с использованием **css-modules** или **scoped**, будет плюсом использование препроцессора.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
+- [X] Проект должен храниться у вас в личном репозитории GitHub/GitLab/Bitbucket, в котором должно быть описание запуска проекта на локальной машине и версии node, на которой велась разработка.
 
-### `pages`
+### **Плюсом будет**
 
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
+- [X] Демонстрация знаний современных стандартов **ES**.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
+- [X] Грамотное использование **SCSS** препроцессора.
 
-### `plugins`
+- [X] Использование линтеров.
 
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
+- [X] Разработка задания в разных ветках по системе [git-flow](https://danielkummer.github.io/git-flow-cheatsheet/index.ru_RU.html).
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
+---
 
-### `static`
+# **Уровень 1**
 
-This directory contains your static files. Each file inside this directory is mapped to `/`.
+- [X] Использование системы контроля версий.
 
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
+- [X] Настройка сборки проекта.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
+- [X] Использование **Vue** фреймворка.
 
-### `store`
+- [X] Использование **CSS** препроцессора.
 
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
+- [X] Верстка задания согласно макету.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+**Плюсом будет**
+
+- [X] Стилизация состояний взаимодействий (hover, active, focused) с элементами на свое усмотрение.
+
+- [X] Верстка адаптивной версии под мобильные устройства.
+
+---
+
+# **Уровень 2**
+
+- [X] Добавить валидацию для формы добавления товара.
+
+- Название - обязательное поле.
+- Ссылка на изображение товара - обязательное поле.
+- Цена - обязательное полек.
+
+- [X] Кнопка добавления товара неактивна пока форма пуста или невалидна.
+
+Добавление маски разделения тысячных пробелом для поля цены.
+
+- [X] Разработка функционала добавления товара в общий список из формы.
+
+**Плюсом будет**
+
+- [X] Верстка состояния удачного добавления товара в форме на свое усмотрение.
+
+Анимация перехода состояний.
+
+- [X] Анимация добавления товара в список.
+
+---
+
+# **Уровень 3**
+
+- [X] Добавление функционала удаления товара из списка.
+
+- [X] Разработка функционала сохранения списка товаров при перезагрузке страницы.
+
+- [X] Разработка функционала сортировки списка товаров по следующим параметрам:
+
+- По цене min (от меньшего к большему).
+- По цене max (от большего к меньшему).
+- По наименованию.
+
+**Плюсом будет**
+
+- [X] Анимация удаления товара.
+
+- [X] Анимация сортировки товара.
+
+Добавление прелодера на странице для плавной инициализации списка
