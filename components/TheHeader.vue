@@ -34,12 +34,12 @@ export default {
     font-size: 12px;
     border: none;
     height: 100%;
-    box-shadow: 0 2px 5px #00000010;
 
 
     &__container {
-      height: 36px;
+      padding: 8px;
       background: $color-bg-main;
+      box-shadow: 0 2px 5px #00000010;
     }
   }
 
