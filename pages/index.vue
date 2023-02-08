@@ -36,11 +36,11 @@ export default {
         "По убыванию цены",
       ],
       productList: [
-        // {id: 1, title: "Название товара", cost: 10000, imgLink: "https://i.ibb.co/TTSPftz/Rectangle-31.png", description: "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк"},
-        // {id: 2, title: "Название товара2", cost: 11000, imgLink: "https://i.ibb.co/TTSPftz/Rectangle-31.png", description: "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк"},
-        // {id: 3, title: "Название товара3", cost: 12000, imgLink: "https://i.ibb.co/TTSPftz/Rectangle-31.png", description: "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк"},
-        // {id: 4, title: "Товар1", cost: 2500, imgLink: "https://i.ibb.co/TTSPftz/Rectangle-31.png", description: "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк"},
-        // {id: 5, title: "Товар2", cost: 4600, imgLink: "https://i.ibb.co/TTSPftz/Rectangle-31.png", description: "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк"},
+        {id: 1, title: "Название товара", cost: 10000, imgLink: "https://i.ibb.co/TTSPftz/Rectangle-31.png", description: "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк"},
+        {id: 2, title: "Название товара2", cost: 11000, imgLink: "https://i.ibb.co/TTSPftz/Rectangle-31.png", description: "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк"},
+        {id: 3, title: "Название товара3", cost: 12000, imgLink: "https://i.ibb.co/TTSPftz/Rectangle-31.png", description: "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк"},
+        {id: 4, title: "Товар1", cost: 2500, imgLink: "https://i.ibb.co/TTSPftz/Rectangle-31.png", description: "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк"},
+        {id: 5, title: "Товар2", cost: 4600, imgLink: "https://i.ibb.co/TTSPftz/Rectangle-31.png", description: "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк"},
       ]
     }
   },
@@ -61,7 +61,7 @@ export default {
     }
   },
   created() {
-    this.productList = JSON.parse(localStorage.getItem('productList'))
+    this.productList = JSON.parse(localStorage.getItem('productList')) || this.productList
   },
   methods: {
     updateSelectedSort(newValue) {
